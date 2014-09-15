@@ -13,7 +13,7 @@ var paths = {
 gulp.task('test', function () {
   process.env.NODE_ENV = 'TEST';
 
-  return gulp.src(paths.scripts)
+  return gulp.src(paths.tests)
     .pipe(mocha({reporter: 'dot'}));
 });
 
