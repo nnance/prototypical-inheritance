@@ -1,9 +1,14 @@
 'use strict';
 
 // constructor
-var Config = function(){
+var Config = function(url){
   // instance variable
   this.environment = 'test';
+  this.url = url ? url : '';
+};
+
+var concat = function(str1,str2) {
+  return str1 + str2;
 };
 
 // static function
@@ -19,8 +24,17 @@ Config.prototype = {
     // instance function
     getEnvironment: function() {
       return this.environment;
+    },
+
+    getUrl: function() {
+      return concat(this.staticBase, this.url);
     }
 };
+
+// make private functions testable
+if (process.env.NODE_ENV === 'TEST') {
+  Config.concat = concat;
+}
 
 // make this file loadable via commonjs / node
 module.exports = Config;
