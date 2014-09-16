@@ -41,7 +41,7 @@ describe('Library Module', function(){
     // notice how our secondModule has changed the baseModule
     // proving that the module is instances are shared
     it('the base url should be reset', function(){
-      expect(secondModule.getBaseUrl()).to.not.contain('dev.');
+      expect(baseModule.getBaseUrl()).to.not.contain('dev.');
     });
   });
 });
