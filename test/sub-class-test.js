@@ -7,7 +7,7 @@ var ProductionConfig = require('../sub-class');
 describe('When subClass is created', function(){
   var prodConfig;
   before(function(){
-    prodConfig = new ProductionConfig();
+    prodConfig = new ProductionConfig('startup.html');
   });
   it('should exist', function(){
     expect(prodConfig).to.exist;
@@ -23,5 +23,8 @@ describe('When subClass is created', function(){
   });
   it('should have a base url with production', function(){
     expect(prodConfig.getBaseUrl()).to.contain('production');
+  });
+  it('url should contain startup.html', function(){
+    expect(prodConfig.getUrl()).to.contain('startup.html');
   });
 });
